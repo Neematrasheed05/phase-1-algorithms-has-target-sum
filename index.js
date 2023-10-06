@@ -1,22 +1,31 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
-}
-
-/* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
+    const seenNumbers = new Set();
+  
+    for (const num of array) {
+      const complement = target - num;
+  
+      // If the complement (number needed to reach the target) is in the set, return true
+      if (seenNumbers.has(complement)) {
+        return true;
+      }
+  
+      // Otherwise, add the current number to the set
+      seenNumbers.add(num);
+    }
+  
+    // If no pair was found, return false
+    return false;
+  }
+  
+  /*function hasTargetSum(array, target):
+  Initialize an empty set called seenNumbers
+  For each num in array:
+      Calculate the complement (target - num)
+      If complement is in seenNumbers:
+          Return true
+      Add num to seenNumbers
+  Return false*/
 if (require.main === module) {
-  // add your own custom tests in here
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
 
